@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vols</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Departure airport</th>
+      <th>Arrival airport</th>
+      <th>Business class seats</th>
+      <th>Economy class seats</th>
+      <th>Departure date</th>
+      <th>Duration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vols.each do |vol| %>
+      <tr>
+        <td><%= vol.number %></td>
+        <td><%= vol.departure_airport %></td>
+        <td><%= vol.arrival_airport %></td>
+        <td><%= vol.business_class_seats %></td>
+        <td><%= vol.economy_class_seats %></td>
+        <td><%= vol.departure_date %></td>
+        <td><%= vol.duration %></td>
+        <td><%= link_to 'Show', vol %></td>
+        <td><%= link_to 'Edit', edit_vol_path(vol) %></td>
+        <td><%= link_to 'Destroy', vol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vol', new_vol_path %>

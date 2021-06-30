@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @vol.number %>
+</p>
+
+<p>
+  <strong>Departure airport:</strong>
+  <%= @vol.departure_airport %>
+</p>
+
+<p>
+  <strong>Arrival airport:</strong>
+  <%= @vol.arrival_airport %>
+</p>
+
+<p>
+  <strong>Business class seats:</strong>
+  <%= @vol.business_class_seats %>
+</p>
+
+<p>
+  <strong>Economy class seats:</strong>
+  <%= @vol.economy_class_seats %>
+</p>
+
+<p>
+  <strong>Departure date:</strong>
+  <%= @vol.departure_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @vol.duration %>
+</p>
+
+<%= link_to 'Edit', edit_vol_path(@vol) %> |
+<%= link_to 'Back', vols_path %>
