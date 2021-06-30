@@ -1,11 +1,9 @@
 class CreateReservations < ActiveRecord::Migration[6.1]
   def change
     create_table :reservations do |t|
-      t.integer :numeroVol
-      t.integer :idUser
-      t.datetime :heureReservation
+      t.datetime :heure_reservation
       t.string :classe
-      t.integer :nombrePlaces
+      t.integer :nombre_places
 
       t.timestamps
     end
