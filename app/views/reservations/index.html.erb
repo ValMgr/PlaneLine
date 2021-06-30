@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Numerovol</th>
+      <th>Iduser</th>
+      <th>Heurereservation</th>
+      <th>Classe</th>
+      <th>Nombreplaces</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.id %></td>
+        <td><%= reservation.numeroVol %></td>
+        <td><%= reservation.idUser %></td>
+        <td><%= reservation.heureReservation %></td>
+        <td><%= reservation.classe %></td>
+        <td><%= reservation.nombrePlaces %></td>
+        <td><%= link_to 'Show', reservation %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reservation', new_reservation_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  numeroVol: 1
+  idUser: 1
+  heureReservation: 2021-06-30 17:03:14
+  classe: MyString
+  nombrePlaces: 1
+
+two:
+  id: 1
+  numeroVol: 1
+  idUser: 1
+  heureReservation: 2021-06-30 17:03:14
+  classe: MyString
+  nombrePlaces: 1
