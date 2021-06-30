@@ -5,6 +5,9 @@
 .list{
   margin-top: 5vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .flight-card{
@@ -14,5 +17,23 @@
   width: 50%;
   padding: 1em;
   margin: 1em;
+  justify-content: space-between;
 }
+
+.time{
+  font-weight: 800;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.airport{
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.duration, .info{
+  font-size: 1.3em;
+  align-self: center;
+}
+
 

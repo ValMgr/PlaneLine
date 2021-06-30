@@ -9,7 +9,7 @@
 require 'csv'
 
 CSV.foreach(Rails.root.join('lib/seed_csv/flights.csv'), headers: true) do |row|
-  Flight.create( {
+  Vol.create( {
                    number: row['number'],
                    departure_airport: row['departure_airport'],
                    arrival_airport: row['arrival_airport'],
