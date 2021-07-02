@@ -1,28 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Réserver un vol</h2>
+<h2>Trouvez le vol qui vous correspond !</h2>
+
+<hr style="margin: 1em 0">
+
+<div class="page">
+  <% for x in 0..@page %>
+    <a href="vols?page=<%= x %>"><%= x %></a>
+  <% end %>
+</div>
 
 <div class="list">
   <% @vols.each do |vol| %>
-    <div class="flight-card">
-      <div class="departure">
-        <p class="time"><%= vol.departure_date.strftime("%H:%M") %></p>
-        <p class="airport"><%= vol.departure_airport %></p>
-      </div>
+    <% if vol.departure_date.future? %>
+      <div class="flight-card">
 
-      <p class="duration">Durée <%= vol.duration_format(vol.duration) %></p>
+        <div class="departure">
+          <p class="date"><%= vol.departure_date.strftime("%d/%m/%y") %></p>
+          <p class="time"><%= vol.departure_date.strftime("%H:%M") %></p>
+          <p class="airport"><%= vol.departure_airport %></p>
+        </div>
 
-      <div class="arrival">
-        <p class="time"><%= vol.arrival_date(vol.departure_date, vol.duration).strftime("%H:%M"); %></p>
-        <p class="airport"><%= vol.arrival_airport %></p>
-      </div>
+        <p class="duration">Durée <%= vol.duration_format(vol.duration) %></p>
 
-      <div class="info">
-        <p>Numéro de vol</p>
-        <p class="id"><%= vol.number %></p>
+        <div class="arrival">
+          <p class="date"><%= vol.arrival_date(vol.departure_date, vol.duration).strftime("%d/%m/%y") %></p>
+          <p class="time"><%= vol.arrival_date(vol.departure_date, vol.duration).strftime("%H:%M"); %></p>
+          <p class="airport"><%= vol.arrival_airport %></p>
+        </div>
+
+        <div class="info">
+          <p>Numéro de vol</p>
+          <p class="id"><%= vol.number %></p>
+        </div>
+        <% if user_signed_in? %>
+          <a href="#" class="submit">Réserver</a>
+        <% end %>
       </div>
-    </div>
+    <% end %>
   <% end %>
+
+
 </div>
 
 <br>
