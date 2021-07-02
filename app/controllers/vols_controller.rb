@@ -3,9 +3,14 @@ class VolsController < ApplicationController
 
   # GET /vols or /vols.json
   def index
-    @vols = Vol.page(1)
-    @page = Vol.page(1).total_pages
+    if params[:page].present?
+      @vols = Vol.page(params[:page])
+    else
+      @vols = Vol.page(1)
+    end
   end
+
+
 
   # GET /vols/1 or /vols/1.json
   def show

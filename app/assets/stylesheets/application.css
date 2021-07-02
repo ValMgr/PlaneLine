@@ -32,6 +32,11 @@ p{
 
 }
 
+a:hover{
+    background: none;
+    text-decoration: underline;
+}
+
 .header{
     background-color: #B00100;
     padding: 2em;
