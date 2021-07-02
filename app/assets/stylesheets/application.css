@@ -69,6 +69,24 @@ nav.navigation ul{
 }
 
 
+.notice, .alert{
+    position: absolute;
+    bottom: 5vh;
+    left: 5vh;
+    /*box-shadow: 3px 3px 12px 3px #00000096;
+    padding: 2em;
+    border-radius: 15px;*/
+}
+
+.alert{
+    color: red;
+}
+
+.notice{
+    color: green;
+
+}
+
 
 
 /* helper */
