@@ -4,9 +4,9 @@ class VolsController < ApplicationController
   # GET /vols or /vols.json
   def index
     if params[:page].present?
-      @vols = Vol.page(params[:page])
+      @vols = Vol.all.page(params[:page])
     else
-      @vols = Vol.page(1)
+      @vols = Vol.all.page(1)
     end
   end
 
