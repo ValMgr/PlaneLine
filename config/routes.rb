@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'vols#index'
+  root to: 'vols#index?page=1'
   resources :reservations
   devise_for :users
   resources :vols
