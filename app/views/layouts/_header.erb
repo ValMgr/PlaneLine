@@ -4,9 +4,8 @@
   <nav class="navigation">
     <ul>
       <li class="nav-links"><a href="vols">Réserver un vol</a></li>
-      <li class="nav-links"><a href="reservations">Mes réservations</a></li>
       <% if user_signed_in? %>
-        <li class="nav-links"><a href="">Mon compte</a></li>
+        <li class="nav-links"><a href="reservations">Mes réservations</a></li>
         <li class="nav-links"><a href="">Déconnexion</a></li>
       <% else %>
         <li class="nav-links"><a href="">Se connecter</a></li>
