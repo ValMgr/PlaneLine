@@ -28,6 +28,10 @@ h2{
     font-size: 5vh;
 }
 
+h3{
+    font-size: 3vh;
+}
+
 p{
 
 }
@@ -43,11 +47,7 @@ a:hover{
     color: #FFF;
     display: flex;
     justify-content: space-between;
-}
-
-.container{
-    margin: 5vh 15% 0 15%;
-
+    margin-bottom: 5vh;
 }
 
 nav.navigation ul{
