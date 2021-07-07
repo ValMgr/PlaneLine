@@ -34,13 +34,42 @@
 .duration, .info{
   font-size: 1.3em;
   align-self: center;
+  position: relative;
 }
 
+.duration{
+  background-color: #FFF;
+  padding: 0 0.6em;
+  margin: 0 2em;
+
+}
+
+.duration:after{
+  content:"";
+  display: block;
+  height: 1px;
+  width: 130%;
+  top: 50%;
+  left: -15%;
+  position: absolute;
+  background-color: #000;
+  z-index: -1;
+}
 
 .page-l.selected{
   text-decoration: none;
   cursor: default;
   color: #B00100;
+}
+
+.submit{
+  color: #FFF!important;
+  align-self: center;
+  height: max-content;
+}
+
+.id{
+  font-size: 1.2em;
 }
 
 
