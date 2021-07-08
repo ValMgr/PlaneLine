@@ -1,24 +1,18 @@
 # README
+##PlaneLine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Installation:
+- gem install
+- rails db:migrate
+- rake db:seed
 
-Things you may want to cover:
 
-* Ruby version
+### Retour d'expérience
 
-* System dependencies
+Valentin: J'apprécie énormément l'environnement ruby on rails, la principale difficulté à été de s'habituer à la syntaxe du ruby et spécificité de rails, des gems etc..
 
-* Configuration
+Théo: 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###Par: 
+* Théo Douence
+* Valentin Magry

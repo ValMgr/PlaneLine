@@ -1,10 +1,14 @@
 
 
 <h2>Trouvez le vol qui vous correspond !</h2>
+<% if !user_signed_in? %>
+  <p class="p">Connectez vous pour réserver un vol !</p>
+<% end %>
 
 <hr style="margin: 1em 0">
 
 <%= paginate @vols %>
+
 
 <div class="list">
   <% if @vols.length == 0 %>
