@@ -35,7 +35,7 @@
             <p class="id"><%= vol.number %></p>
           </div>
           <% if user_signed_in? %>
-            <a href="#" class="btn btn-success submit">Réserver</a>
+            <%= button_to "Reserver", {:controller => "vols", :action => "show", :id => vol.id} , method: :get, class: "btn btn-success submit"%>
           <% end %>
         </div>
       <% end %>

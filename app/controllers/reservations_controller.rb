@@ -3,8 +3,21 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.where(user_id:current_user.id)
     @user = current_user
+  end
+
+  def reserver
+    type_classe = params[:type_classe]
+    nombre_passagers = params[:places]
+
+    @vol = Vol.find_by(id:params[:id])
+    @reservation = Reservation.create(user_id:current_user.id,vol_id:params[:id],classe:type_classe,nombre_places:nombre_passagers,pnr:SecureRandom.hex(3), heure_reservation:DateTime.now)
+
+    if @reservation.save
+      UserMailer.with(reservation: @reservation,user: current_user,vol:@vol).welcome_email.deliver_later
+      redirect_to '/'
+    end
   end
 
   # GET /reservations/1 or /reservations/1.json
