@@ -6,6 +6,6 @@ class UserMailer < ApplicationMailer
     @vol = params[:vol]
     @url  = 'http://127.0.0.1:3000/login'
 
-    mail(to: @user.email, subject: 'Bienvenue sur mon magnifique site')
+    mail(to: @user.email, subject: '✈️ Confirmation de votre réservation')
   end
 end

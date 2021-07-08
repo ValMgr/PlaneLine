@@ -2,10 +2,16 @@
 <html lang="fr">
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  <title></title>
+  <title>Confirmation de votre réservation</title>
 </head>
 <body>
-<h1>Salutation</h1>
-<p>Thanks for joining and have a great day!</p>
+<h1>Votre réservation</h1>
+
+<% vol = Vol.find(@reservation.id) %>
+
+<p>N°<%= @reservation.pnr.upcase %></p>
+<p>Nombre de place: <%= @reservation.nombre_places %> <%= @reservation.classe.capitalize() %></p>
+<p>De <%= vol.departure_airport %> vers <%= vol.arrival_airport %></p>
+
 </body>
 </html>

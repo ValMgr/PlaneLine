@@ -97,6 +97,10 @@ input{
     color: #FFF !important;
 }
 
+.p{
+    color: red;
+}
+
 /* helper */
 
 .space-15{
