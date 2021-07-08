@@ -20,4 +20,4 @@ CSV.foreach(Rails.root.join('lib/seed_csv/flights.csv'), headers: true) do |row|
                  } )
 end
 
-User.create! email: 'test@test.com', password: 'password', password_confirmation: 'password'
+User.create! email: 'test@test.com', password: 'password', password_confirmation: 'password', firstname: 'admin', lastname: 'test', age: 22

@@ -3,7 +3,13 @@
 
   <nav class="navigation">
     <ul>
-      <li class="nav-links"><a href="/vols">Réserver un vol</a></li>
+      <li class="nav-links"><a href="/vols">
+        <% if user_signed_in? %>
+          Réserver un vol
+        <% else %>
+          Liste des vols
+        <% end %>
+          </a></li>
       <% if user_signed_in? %>
         <li class="nav-links"><a href="/reservations">Mes réservations</a></li>
         <li class="nav-links"><a href="/logout">Déconnexion</a></li>
