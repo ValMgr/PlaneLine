@@ -22,7 +22,7 @@ class ReservationsTest < ApplicationSystemTestCase
     fill_in "Numerovol", with: @reservation.numeroVol
     click_on "Create Reservation"
 
-    assert_text "Reservation was successfully created"
+    assert_text "La réservation a bien été ajoutée."
     click_on "Back"
   end
 
@@ -38,7 +38,7 @@ class ReservationsTest < ApplicationSystemTestCase
     fill_in "Numerovol", with: @reservation.numeroVol
     click_on "Update Reservation"
 
-    assert_text "Reservation was successfully updated"
+    assert_text "La réservation a bien été modifiée."
     click_on "Back"
   end
 
@@ -48,6 +48,6 @@ class ReservationsTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Reservation was successfully destroyed"
+    assert_text "La réservation a bien été supprimée."
   end
 end
