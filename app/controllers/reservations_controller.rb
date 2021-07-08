@@ -14,9 +14,26 @@ class ReservationsController < ApplicationController
     @vol = Vol.find_by(id:params[:id])
     @reservation = Reservation.create(user_id:current_user.id,vol_id:params[:id],classe:type_classe,nombre_places:nombre_passagers,pnr:SecureRandom.hex(3), heure_reservation:DateTime.now)
 
-    if @reservation.save
-      UserMailer.with(reservation: @reservation,user: current_user,vol:@vol).welcome_email.deliver_later
-      redirect_to '/'
+    reservation_vol = Reservation.all.where(vol_id:params[:id])
+    places_prises_business = 0
+    places_prises_economie = 0
+
+    reservation_vol.each do |reservation|
+        if reservation.classe == 'economie'
+          places_prises_economie+= reservation.nombre_places
+        else
+          places_prises_business+= reservation.nombre_places
+        end
+    end
+
+    if ((@vol.economy_class_seats - places_prises_economie) < nombre_passagers.to_i && type_classe == 'economie') || ((@vol.business_class_seats - places_prises_business) < nombre_passagers.to_i && type_classe == 'business')
+      flash[:alert]="Erreur en votre faveur"
+      redirect_to controller: 'vols', action: 'show', id: params[:id]
+    else
+      if @reservation.save
+        UserMailer.with(reservation: @reservation,user: current_user,vol:@vol).welcome_email.deliver_later
+        redirect_to '/'
+      end
     end
   end
 
