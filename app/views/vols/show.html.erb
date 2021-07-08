@@ -1,54 +1,25 @@
 
 <%= form_with url: {:controller => "reservations", :action => "reserver", :id => @vol.id}, method: :post do |form| %>
-  <h4><%= form.label :classe, "Classe" %></h4>
-  <%= form.radio_button :type_classe, "economie" , :required => true%>
-  <%= form.label :type_classe_eco, "Economie" %>
-  <%= form.radio_button :type_classe, "business" %>
-  <%= form.label :type_classe_business, "Business" %>
-  <br>
-  <h4><%= form.label :places, "Nombre de passagers" %></h4>
 
-  <%= form.number_field :places, in: 1.0..99.0, step: 1 %>
-  <br>
-  <br>
-  <%= form.submit "Valider",class: "btn btn-success submit" %>
+  <h3 class="mb-5">Réservation pour le vol  <%= @vol.number %></h3>
+
+  <div class="d-flex align-items-center">
+    <%= form.label :places, "Nombre de place(s): ", class: "form-check-label me-2" %>
+    <%= form.number_field :places, in: 1.0..99.0, step: 1, class: "form-control" %>
+  </div>
+
+  <div class="d-flex">
+    <%= form.radio_button :type_classe, "economie", class: "form-check-input me-2", :required => true , checked: true %>
+    <%= form.label :type_classe_eco, "Economie", class: 'form-check-label me-1' %>
+    <%= form.radio_button :type_classe, "business", class: "form-check-input me-2" %>
+    <%= form.label :type_classe_business, "Business", class: 'form-check-label me-1' %>
+  </div>
+
+  <div class="d-flex mt-5">
+    <%= form.submit "Valider",class: "btn btn-success submit me-2" %>
+    <%= link_to 'Retour', vols_path, class: "btn btn-secondary" %>
+
+  </div>
 <% end %>
 
 
-<p>
-  <strong>Number:</strong>
-  <%= @vol.number %>
-</p>
-
-<p>
-  <strong>Departure airport:</strong>
-  <%= @vol.departure_airport %>
-</p>
-
-<p>
-  <strong>Arrival airport:</strong>
-  <%= @vol.arrival_airport %>
-</p>
-
-<p>
-  <strong>Business class seats:</strong>
-  <%= @vol.business_class_seats %>
-</p>
-
-<p>
-  <strong>Economy class seats:</strong>
-  <%= @vol.economy_class_seats %>
-</p>
-
-<p>
-  <strong>Departure date:</strong>
-  <%= @vol.departure_date %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @vol.duration %>
-</p>
-
-<%= link_to 'Edit', edit_vol_path(@vol) %> |
-<%= link_to 'Back', vols_path %>
