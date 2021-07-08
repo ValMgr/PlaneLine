@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     end
 
     if ((@vol.economy_class_seats - places_prises_economie) < nombre_passagers.to_i && type_classe == 'economie') || ((@vol.business_class_seats - places_prises_business) < nombre_passagers.to_i && type_classe == 'business')
-      flash[:alert]="Erreur en votre faveur"
+      flash[:alert]="Nombre maximum de places atteint pour votre classe"
       redirect_to controller: 'vols', action: 'show', id: params[:id]
     else
       if @reservation.save
