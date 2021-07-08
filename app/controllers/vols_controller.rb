@@ -14,6 +14,7 @@ class VolsController < ApplicationController
 
   # GET /vols/1 or /vols/1.json
   def show
+    
   end
 
   # GET /vols/new
