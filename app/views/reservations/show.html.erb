@@ -1,34 +1,42 @@
+<% vol = Vol.find(@reservation.vol_id) %>
+<% user = User.find(@reservation.user_id) %>
+
+<div class="d-flex">
+  <a href="/reservations" class="btn btn-secondary mb-2 me-2">Retour</a>
+  <%= button_to "Supprimer", {:controller => "reservations", :action => "destroy", :id => @reservation.id} , :method => :delete, class: "btn btn-danger submit"%>
+</div>
+
+<h2>Réservation <%= @reservation.pnr.upcase() %></h2>
 
 
-<!--<p>-->
-<!--  <strong>Id:</strong>-->
-  <%#= @reservation.id %>
-<!--</p>-->
+<div class="row">
+  <div class="col-6">
 
-<!--<p>-->
-<!--  <strong>Numerovol:</strong>-->
-  <%#= @reservation.numeroVol %>
-<!--</p>-->
+    <div class="depart d-flex flex-column mt-4 mb-2">
+      <p class="mb-1"><%= vol.departure_date.strftime("%d/%m/%Y") %></p>
+      <div class="d-flex">
+        <p id="airport"><%= vol.departure_airport %></p>
+        <p id="time-d"><%= vol.departure_date.strftime("%H:%M") %></p>
+      </div>
+    </div>
 
-<!--<p>-->
-<!--  <strong>Iduser:</strong>-->
-  <%#= @reservation.idUser %>
-<!--</p>-->
+    <div class="path" style="height: 15vh;"></div>
 
-<!--<p>-->
-<!--  <strong>Heurereservation:</strong>-->
-  <%#= @reservation.heureReservation %>
-<!--</p>-->
+    <p class="dur my-2"><%= vol.duration_format(vol.duration) %></p>
 
-<!--<p>-->
-<!--  <strong>Classe:</strong>-->
-  <%#= @reservation.classe %>
-<!--</p>-->
+    <div class="path" style="height: 15vh;"></div>
 
-<!--<p>-->
-<!--  <strong>Nombreplaces:</strong>-->
-  <%#= @reservation.nombrePlaces %>
-<!--</p>-->
-
-<!--<%#= link_to 'Edit', edit_reservation_path(@reservation) %> |-->
-<%#= link_to 'Back', reservations_path %>
+    <div class="arrival d-flex flex-column mt-2 mb-1">
+      <p class="mb-1"><%= vol.arrival_date(vol.departure_date, vol.duration).strftime("%d/%m/%Y") %></p>
+      <div class="d-flex">
+        <p id="airport"><%= vol.arrival_airport %></p>
+        <p id="time-d"><%= vol.arrival_date(vol.departure_date, vol.duration).strftime("%H:%M") %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <p>Réservation faites le : <%= @reservation.heure_reservation.strftime("%d/%m/%Y") %> à <%= @reservation.heure_reservation.strftime("%H:%M") %></p>
+    <p>Nombre de place(s) : <%= @reservation.nombre_places %> <%= @reservation.classe.capitalize() %></p>
+    <p>Nom d'enregistrement: <%= user.firstname %> <%= user.lastname %></p>
+  </div>
+</div>

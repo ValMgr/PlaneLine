@@ -5,16 +5,25 @@
 <hr>
 
 <div class="row">
-  <div class="col-9">
+  <div class="col-9 row">
     <h3>Mes réservations</h3>
     <% @reservations.each do |reservation| %>
-      <%= reservation.heure_reservation%>
-      <%= reservation.classe%>
-      <%= reservation.nombre_places%>
-      <%= reservation.user_id%>
-      <%= reservation.pnr%>
-      <%= button_to "Supprimer", {:controller => "reservations", :action => "destroy", :id => reservation.id} , :method => :delete, class: "btn btn-success submit"%>
-      <br>
+      <div class="reserv-card col-3 m-3">
+        <div class="card-head">
+          <img src="https://cdn.radiofrance.fr/s3/cruiser-production/2020/03/4846b9fe-69d4-491a-b89b-b2a0a8da76db/1136_avion_gettyimages-1137268547.jpg">
+        </div>
+        <div class="card-body">
+          <% vol = Vol.find(reservation.vol_id) %>
+          <p class="airport"><%= vol.departure_airport %> - <%= vol.arrival_airport %></p>
+          <p><%= vol.departure_date.strftime("%d/%m/%y") %></p>
+          <p><%= reservation.nombre_places%> place(s) <%= reservation.classe.capitalize() %></p>
+          <p class="b"><%= reservation.pnr.upcase %></p>
+          <a href="/reservations/<%= reservation.id %>" class="btn btn-primary mb-2">Voir</a>
+          <%= button_to "Supprimer", {:controller => "reservations", :action => "destroy", :id => reservation.id} , :method => :delete, class: "btn btn-danger submit"%>
+
+        </div>
+      </div>
+
     <% end %>
 
   </div>
@@ -30,4 +39,6 @@
   </div>
 </div>
 
-<%= link_to 'Faire une reservation', '/' %>
+<br>
+
+<%= link_to 'Faire une reservation', '/', class: 'btn btn-primary' %>

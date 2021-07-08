@@ -1,3 +1,41 @@
 // Place all the styles related to the Reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.reserv-card{
+  box-shadow: 3px 6px 12px 3px rgba(0, 0, 0, 0.15);
+  width: max-content;
+  border-radius: 15px;
+  padding: 0;
+  text-align: center;
+}
+
+.reserv-card p{
+  margin-bottom: 0.2em;
+}
+
+.b{
+  font-weight: bold;
+}
+
+.card-body{
+  padding: 2em;
+}
+
+.reserv-card img{
+  max-width: 200px;
+  border-radius: 15px 15px 0 0;
+}
+
+.depart p, .arrival p, .dur{
+  margin: 0 0.5em 0 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.path{
+  display: block;
+  width: 1px;
+  background-color: #333;
+}
