@@ -1,4 +1,18 @@
 
+<%= form_with url: {:controller => "reservations", :action => "reserver", :id => @vol.id}, method: :post do |form| %>
+  <h4><%= form.label :classe, "Classe" %></h4>
+  <%= form.radio_button :type_classe, "economie" , :required => true%>
+  <%= form.label :type_classe_eco, "Economie" %>
+  <%= form.radio_button :type_classe, "business" %>
+  <%= form.label :type_classe_business, "Business" %>
+  <br>
+  <h4><%= form.label :places, "Nombre de passagers" %></h4>
+  <%= form.number_field :places, in: 1.0..99.0, step: 1 %>
+  <br>
+  <br>
+  <%= form.submit "Valider",class: "btn btn-success submit" %>
+<% end %>
+
 
 <p>
   <strong>Number:</strong>
