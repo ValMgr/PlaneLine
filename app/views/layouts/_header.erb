@@ -3,12 +3,12 @@
 
   <nav class="navigation">
     <ul>
-      <li class="nav-links"><a href="vols">Réserver un vol</a></li>
+      <li class="nav-links"><a href="/vols">Réserver un vol</a></li>
       <% if user_signed_in? %>
-        <li class="nav-links"><a href="reservations">Mes réservations</a></li>
-        <li class="nav-links"><a href="logout">Déconnexion</a></li>
+        <li class="nav-links"><a href="/reservations">Mes réservations</a></li>
+        <li class="nav-links"><a href="/logout">Déconnexion</a></li>
       <% else %>
-        <li class="nav-links"><a href="login">Se connecter</a></li>
+        <li class="nav-links"><a href="/login">Se connecter</a></li>
       <% end %>
     </ul>
   </nav>

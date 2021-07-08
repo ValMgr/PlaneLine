@@ -11,10 +11,11 @@
   </div>
   <div class="col-3">
     <div class="user-info">
-      <h3>Mes informations</h3>
+      <h3 class="mb-4">Mes informations</h3>
       <p id="name"><span class="u">Name: </span> <%= current_user.lastname %></p>
       <p id="firstname"><span class="u">Firstname: </span> <%= current_user.firstname %></p>
       <p id="age"><span class="u">Age: </span> <%= current_user.age %></p>
+      <a href="user/edit" class="edit">Modifier mes informations</a>
     </div>
 
   </div>
