@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:D:\Dawin\rr\PlaneLine\db\development.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="development [2]" uuid="7065d688-d065-47b8-a3c7-f12888c303f9">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\theo3\Documents\LP\Ruby-proj\PlaneLine\db\development.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
