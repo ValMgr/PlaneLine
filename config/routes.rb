@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   post '/reserve', to: 'reservations#reserver'
+  delete '/supprimer', to:'reservations#destroy'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -13,6 +13,7 @@
       <%= reservation.nombre_places%>
       <%= reservation.user_id%>
       <%= reservation.pnr%>
+      <%= button_to "Supprimer", {:controller => "reservations", :action => "destroy", :id => reservation.id} , :method => :delete, class: "btn btn-success submit"%>
       <br>
     <% end %>
 
